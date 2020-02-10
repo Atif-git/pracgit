@@ -1,0 +1,36 @@
+For RHEL:
+========================
+yum install java-1.8.0-openjdk --> to install Java, which is a pre-requisite for jenkins
+yum install wget --> application installer on a linux machine
+
+to install jenkins:
+browse to : https://jenkins.io/download/
+select the OS you are using -> redhat i am using here, below are the commands to install jenkins
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum install jenkins
+
+start the jenkins service:
+systemctl start jenkins
+systemctl status jenkins
+=========================
+
+ifconfig -> to check for private ip of the linux VM
+curl ifconfig.co ->  to check for public ip of the linux VM
+
+open browser -> enter the following URL : <publicIP>:8080
+
+add security rule http port 8080 on the network security group.
+
+port 8080 is the default http port to connect to jenkins, this can be changed to your convenience.
+
+https://www.thegeekdiary.com/how-to-open-a-ports-in-centos-rhel-7/   --- link to open port for redhat
+
+get the administrator password from the following directory: /var/lib/jenkins/secrets/initialAdminPassword
+
+using the below command: cat /var/lib/jenkins/secrets/initialAdminPassword
+
+enter the password, and install the default plugins.
+
+then create your username as required with a password.
